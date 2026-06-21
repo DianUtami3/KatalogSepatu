@@ -1,4 +1,7 @@
-# G3S0 Store Management System
+## Nama : Dian Utami (2410501001)
+## Nama : Chalieta Gabriella Tangkau (2410501012)
+
+## Sistem Informasi Manajemen Inventori dan Penjualan pada G3S0 Store
 
 Sistem Informasi Manajemen Inventori dan Penjualan ini adalah aplikasi berbasis web yang dirancang untuk mengelola operasional **G3S0 Store**. Aplikasi ini mencakup pengelolaan data produk, kategori, pelanggan, serta pencatatan transaksi penjualan secara terintegrasi.
 
@@ -34,4 +37,4 @@ Aplikasi ini terdiri dari tabel-tabel berikut:
 https://drive.google.com/file/d/162EugR7PtvLF0kZzWvwyjpoAFWwyTqUW/view?usp=drivesdk 
 
 ## Lisensi
-Proyek ini dibuat untuk keperluan tugas akademik dan pengembangan sistem informasi inventori.
+Proyek ini dibuat untuk keperluan tugas ujian akhir semester dan pengembangan sistem informasi inventori.
