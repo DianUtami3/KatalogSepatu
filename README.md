@@ -1,5 +1,5 @@
 ## Nama : Dian Utami (2410501001)
-## Nama : Chalieta Gabriella Tangkau (2410501012)
+# Nama : Chalieta Gabriella Tangkau (2410501012)
 
 ## Sistem Informasi Manajemen Inventori dan Penjualan pada G3S0 Store
 
