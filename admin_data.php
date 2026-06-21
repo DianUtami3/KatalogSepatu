@@ -1,4 +1,11 @@
-<?php include 'koneksi.php'; ?>
+<?php
+session_start();
+if (!isset($_SESSION['status_login'])) {
+    header("Location: login.php");
+    exit;
+}
+include 'koneksi.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +15,8 @@
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
         .modal-content { background: white; padding: 40px; border-radius: 12px; width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .input-field { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; }
+        .settings-menu { margin-top: 20px; }
+        .settings-menu a { display: block; padding: 5px 0; color: #bdc3c7; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -15,32 +24,32 @@
     <div class="sidebar">
         <a href="index.php" style="color: #bdc3c7; text-decoration: none; font-size: 14px; margin-bottom: 20px; display: block;">← BACK TO HOME</a>
         <h2>G3S0 STORE</h2>
-        
         <div class="menu-group">
             <p>MASTER DATA</p>
             <a href="?tabel=produk">Produk</a>
             <a href="?tabel=kategori">Kategori</a>
             <a href="?tabel=pelanggan">Pelanggan</a>
         </div>
-        
         <div class="menu-group">
             <p>TRANSAKSI</p>
             <a href="?tabel=penjualan">Penjualan</a>
             <a href="?tabel=detail_penjualan">Detail Penjualan</a>
         </div>
+        <div class="menu-group settings-menu">
+            <p>SETTINGS</p>
+            <a href="profile.php">Profile</a>
+            <a href="logout.php" style="color: #e74c3c;">Logout</a>
+        </div>
     </div>
-
     <div class="main-content">
         <?php if(isset($_GET['tabel'])): ?>
             <div class="table-container">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <h1 style="font-size: 22px; text-transform: capitalize;"><?php echo str_replace('_', ' ', $_GET['tabel']); ?></h1>
-                    
                     <button onclick="document.getElementById('modal').style.display='flex'" style="background: #8d7171; color: #fff; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;">
                         <?php echo ($_GET['tabel'] == 'detail_penjualan') ? '+ Catat Detail Penjualan' : '+ Tambah ' . ucfirst(str_replace('_', ' ', $_GET['tabel'])); ?>
                     </button>
                 </div>
-
                 <table class="data-table">
                     <?php
                     $t = $_GET['tabel'];
@@ -68,7 +77,6 @@
         <?php endif; ?>
     </div>
 </div>
-
 <?php if(isset($_GET['tabel'])): ?>
 <div id="modal" class="modal">
     <div class="modal-content">

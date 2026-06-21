@@ -4,11 +4,25 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <title>G3S0 Store</title>
+    <style>
+        .menu-icon { cursor: pointer; font-size: 30px; position: absolute; right: 50px; top: 60px; z-index: 1001; }
+        .side-nav { height: 100%; width: 0; position: fixed; z-index: 1002; top: 0; right: 0; background-color: #fff; overflow-x: hidden; transition: 0.5s; padding-top: 60px; border-left: 1px solid #ddd; }
+        .side-nav a { padding: 15px 25px; text-decoration: none; font-size: 20px; color: #000; display: block; transition: 0.3s; }
+        .side-nav a:hover { color: #8d7171; }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">G3S0</div>
+        <div class="menu-icon" onclick="openNav()">&#9776;</div>
     </header>
+
+    <div id="sideNav" class="side-nav">
+        <a href="javascript:void(0)" onclick="closeNav()" style="font-size:30px; text-align:right; padding-right:20px;">&times;</a>
+        <a href="index.php">Home</a>
+        <a href="login.php">Login / Daftar Admin</a>
+        <a href="logout.php">Logout</a>
+    </div>
 
     <div class="hero-section">
         <h1>UNLEASH YOUR STYLE.</h1>
@@ -51,5 +65,10 @@
             <?php } ?>
         </div>
     </div>
+
+    <script>
+        function openNav() { document.getElementById("sideNav").style.width = "250px"; }
+        function closeNav() { document.getElementById("sideNav").style.width = "0"; }
+    </script>
 </body>
 </html>
